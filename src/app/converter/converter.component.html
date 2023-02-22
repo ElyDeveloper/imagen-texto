@@ -1,10 +1,30 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row">
-    <div class="d-flex flex-column justify-content-center align-content-center align-items-center">
-      <img src="assets/img/image.jpeg" alt="" class="img-fluid" height="300" width="300">
-      <label for="file">Progreso de reconocimiento: <span class="text-success">{{progress}}%</span></label>
-      <progress id="file" max="100" value="{{progress}}"> {{progress}} </progress>
-      <h2>Resultado: </h2>
+    <div
+      class="d-flex flex-column justify-content-center align-content-center align-items-center"
+    >
+      <div class="form-group my-2">
+        <label for="urlImagen">Pegue la url de la imagen...</label>
+        <input class="form-control" type="text" id="urlImagen" [(ngModel)]="urlImagen" />
+      </div>
+      <img
+        src="{{ urlImagen }}"
+        alt=""
+        class="img-fluid"
+        height="300"
+        width="300"
+      />
+      <button class="btn btn-primary my-2" (click)="extraerTexto()">
+        Extraer Texto <i class="uil uil-comment-lines fs-5"></i>
+      </button>
+      <label for="file"
+        >Progreso de reconocimiento:
+        <span class="text-success">{{ progress }}%</span></label
+      >
+      <progress id="file" max="100" value="{{ progress }}">
+        {{ progress }}
+      </progress>
+      <h2>Resultado:</h2>
       <p class="text-justify">
         {{ ocrResult }}
       </p>
